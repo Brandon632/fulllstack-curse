@@ -1,0 +1,185 @@
+this is a code for my html assigment
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learner Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      background-color: #f0f0f0;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 24px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav {
+      background-color: #444;
+      padding: 10px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+
+    nav a:hover {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 20px;
+    }
+
+    #about img {
+      width: 150px;
+      border-radius: 75px;
+    }
+
+    .skills-container,
+    .projects-container,
+    .recommendations-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .skill,
+    .project,
+    .recommendation {
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 200px;
+      border-radius: 8px;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .skill img,
+    .project img {
+      width: 40px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    #home-icon {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+    }
+
+    #recommendation-form {
+      margin-top: 20px;
+    }
+
+    #recommendation-form input {
+      padding: 8px;
+      width: 300px;
+    }
+
+    #recommendation-form button {
+      padding: 8px 12px;
+      background-color: #444;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    #recommendation-form button:hover {
+      background-color: #333;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>shu Brandon Akongnwi Fonyon</h1>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Project details</a>
+    <a href="#skills">Skills</a>
+    <a href="#recommendations">Recommendations</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="./images /profil_pic.webp" alt="Profile Picture" />
+    <p>Hello! I am shu Brandon Akongnwi Fonyon, a passionate web developer with interests in frontend technologies and UI/UX design.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-container">
+      <div class="skill"><img src="./images /htmllogo.png" alt="HTML"> HTML</div>
+      <div class="skill"><img src="./images /csslogo.png" alt="CSS"> CSS</div>
+      <div class="skill"><img src="./images /javascriplogo.png" alt="JavaScript"> JavaScript</div>
+      <div class="skill"><img src="./images /reactlogo.png" alt="React"> React</div>
+      <div class="skill"><img src="./images /nodejs.png" alt="Node.js"> Node.js</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Project Details</h2>
+    <div class="projects-container">
+      <div class="project">Portfolio Website</div>
+      <div class="project">Task Manager App</div>
+      <div class="project">Weather Dashboard</div>
+    </div>
+  </section>
+
+  <section id="recommendations">
+    <h2>Recommendations</h2>
+    <div class="recommendations-container" id="rec-list">
+      <div class="recommendation">Great collaborator!</div>
+      <div class="recommendation">Very detail-oriented.</div>
+      <div class="recommendation">Delivers high-quality work on time.</div>
+    </div>
+    <form id="recommendation-form">
+      <input type="text" id="new-rec" placeholder="Add a recommendation" />
+      <button type="button" onclick="addRecommendation()">Submit</button>
+    </form>
+  </section>
+
+  <div id="home-icon">
+    <img src="./images /homeicon.png" alt="Home Icon" width="30" />
+  </div>
+
+  <script>
+    function addRecommendation() {
+      const input = document.getElementById('new-rec');
+      const text = input.value.trim();
+
+      if (text) {
+        const div = document.createElement('div');
+        div.className = 'recommendation';
+        div.textContent = text;
+
+        document.getElementById('rec-list').appendChild(div);
+
+        alert("Thank you for submitting a recommendation!");
+        input.value = '';
+      } else {
+        alert("Please enter a recommendation before submitting.");
+      }
+    }
+  </script>
+</body>
+</html>
